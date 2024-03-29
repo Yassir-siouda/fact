@@ -1,0 +1,102 @@
+.login-page {
+  display: flex;
+  height: 100vh;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.login-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background: #fff; /* Light theme background */
+}
+
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login-logo img {
+  width: 80px; /* Adjust the size as needed */
+  margin-bottom: 1rem;
+}
+
+.login-title {
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.login-form .input-group {
+  margin-bottom: 1rem;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.login-button {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #0056b3;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #003d82;
+}
+
+.login-links {
+  margin-top: 1rem;
+}
+
+.login-links a {
+  color: #0056b3;
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.login-links a:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.reset-password {
+  display: block;
+}
+
+.create-account {
+  display: block;
+}
+
+.image-section {
+  flex: 1;
+  background-image: url('https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Add responsive design */
+@media (max-width: 768px) {
+  .login-page {
+    flex-direction: column;
+  }
+
+  .image-section {
+    height: 50vh; /* Adjust the height of the image section on smaller screens */
+  }
+}

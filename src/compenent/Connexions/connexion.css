@@ -1,0 +1,118 @@
+.login-page {
+  display: flex;
+  height: 100vh;
+  background-color: #ffffff; /* Choisissez une couleur de fond légère */
+}
+
+.form-section {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 450px; /* Largeur maximale du formulaire */
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 10px;
+ /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  Ombre subtile pour donner de la profondeur */
+}
+
+.form-title {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.action-group {
+  margin-top: 20px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.submit-btn:hover {
+  background-color: #00397a;
+}
+
+.alternative-action {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.link {
+  color: #0052cc;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.link:hover {
+  color: #00397a;
+}
+
+.background-image-section {
+  width: 65%;
+  background-image: url('https://www.akamai.com/site/im-demo/perceptual-standard.jpg?imbypass=true');
+  background-size: cover;
+  background-position: center;
+}
+
+.logo {
+  width: 150px; /* ajustez la largeur selon vos besoins */
+  height: auto; /* pour conserver les proportions de l'image */
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; /* Centrer le contenu textuel */
+}
+
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .login-page {
+    flex-direction: column-reverse;
+  }
+
+  .form-section {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .background-image-section {
+    width: 100%;
+    height: 200px; /* or whatever height you prefer */
+  }
+}

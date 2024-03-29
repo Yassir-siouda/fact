@@ -1,0 +1,83 @@
+/* Facture.css */
+.app {
+  display: flex;
+  height: 100vh;
+  background: #f4f7fa;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.menu {
+  /* Assurez-vous de définir votre propre style de menu ici. */
+}
+
+.facture-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.facture-form {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: 1rem auto;
+}
+
+.facture-form h1 {
+  margin-bottom: 1rem;
+}
+
+.facture-form label {
+  display: block;
+  margin-bottom: .5rem;
+  color: #333;
+}
+
+.facture-form input,
+.facture-form textarea,
+.facture-form select {
+  width: 100%;
+  padding: .8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.facture-form button {
+  padding: 10px 15px;
+  background-color: #5cb85c;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.facture-form button:hover {
+  background-color: #4cae4c;
+}
+
+/* Style pour les rangées avec deux éléments côte à côte */
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.column {
+  flex: 1;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .column {
+    width: 100%;
+  }
+}

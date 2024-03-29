@@ -1,0 +1,61 @@
+.app {
+  font-family: Arial, sans-serif;
+}
+
+.facture-affichage {
+  padding: 20px;
+}
+
+.facture-affichage h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #04AA6D;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.action-btn {
+  margin-right: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.save {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.cancel {
+  background-color: #f44336;
+  color: white;
+}
+
+.edit {
+  background-color: #ffca28;
+  color: black;
+}
+
+.delete {
+  background-color: #f44336;
+  color: white;
+}

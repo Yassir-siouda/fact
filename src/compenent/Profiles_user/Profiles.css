@@ -1,0 +1,40 @@
+.app-container {
+  display: flex;
+}
+
+.profile-info {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #ECF0F1;
+}
+
+.profile-detail {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.profile-detail p {
+  margin: 0;
+  padding: 10px;
+  background: #f7f7f7;
+  border-radius: 4px;
+}
+
+.profile-detail p strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .profile-detail {
+    grid-template-columns: 1fr;
+  }
+}
