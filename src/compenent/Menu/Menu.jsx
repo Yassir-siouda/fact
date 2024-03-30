@@ -4,12 +4,7 @@ import logo from '../images/InvoicePro.png'
 
 import {
   FaRegChartBar,
-  FaFileAlt,
-  FaBell,
-  FaCog,
-  FaSignOutAlt,
   FaUser,
-  FaQuestionCircle,
   FaBars // Assuming you have this icon for the hamburger menu
 } from 'react-icons/fa';
 
