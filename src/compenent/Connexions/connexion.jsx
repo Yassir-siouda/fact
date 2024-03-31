@@ -37,7 +37,7 @@ const LoginPage = ({ setIsLoggedIn }) => {
   };
 
   if (isLoggedIn) {
-    return <Navigate to="/profiles" />; // Redirection vers /menu si l'utilisateur est connecté
+    return <Navigate to="/profile" />; // Redirection vers /menu si l'utilisateur est connecté
   }
 
   return (
