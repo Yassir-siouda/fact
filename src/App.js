@@ -4,7 +4,7 @@ import LoginPage from './compenent/Connexions/connexion';
 import Inscriptions from './compenent/Inscriptions/Inscriptions';
 import Menu from './compenent/Menu/Menu';
 import Profile from './compenent/Profile/Profile';
-import Profiles from './compenent/Profiles_user/Profiles';
+
 import Facture from './compenent/Facture/Facture';
 import FactureAffichage from './compenent/FactureAffichage/FactureAffichage';
 
