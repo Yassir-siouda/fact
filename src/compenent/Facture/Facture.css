@@ -12,7 +12,7 @@
 
 .facture-content {
   flex: 1;
-  padding: 2rem;
+  padding: 10px;
   overflow-y: auto;
 }
 
@@ -35,13 +35,14 @@
   color: #333;
 }
 
+
 .facture-form input,
 .facture-form textarea,
 .facture-form select {
   width: 100%;
   padding: .8rem;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 30px;
   margin-bottom: 1rem;
   font-size: 0.9rem;
 }
@@ -80,4 +81,10 @@
   .column {
     width: 100%;
   }
+}
+
+
+h1{
+  text-align: center;
+  color: rgb(255, 124, 1);
 }
