@@ -100,6 +100,7 @@
     top: 15px;
     left: 15px;
     z-index: 2; /* S'assurer qu'il est au-dessus de tout autre contenu */
+    color: rgb(255, 124, 1);
   }
 
   .content, .header {
@@ -153,7 +154,6 @@
     background: transparent;
     border: none;
     font-size: 24px;
-    color: #fff; /* Icon color */
   }
 
   /* Adjust content when sidebar is open */
