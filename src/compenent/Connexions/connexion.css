@@ -1,6 +1,6 @@
 .login-page {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
   justify-content: center; /* Centrer verticalement */
   align-items: center; /* Centrer horizontalement */
   height: 100vh;
