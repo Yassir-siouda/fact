@@ -1,7 +1,9 @@
+
 .login-page {
   display: flex;
   height: 100vh;
   background-color: #ffffff; /* Choisissez une couleur de fond légère */
+  overflow-x: hidden; /* Empêcher le défilement horizontal */
 }
 
 .form-section {
@@ -19,6 +21,10 @@
   padding: 40px;
   border-radius: 10px;
  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  Ombre subtile pour donner de la profondeur */
+}
+
+h1 {
+  margin-top: 10px !important; 
 }
 
 .form-title {
@@ -104,15 +110,21 @@
 @media (max-width: 768px) {
   .login-page {
     flex-direction: column-reverse;
+    align-items: center; /* Centrer verticalement le contenu */
   }
 
   .form-section {
     width: 100%;
     padding: 20px;
+    justify-content: center; /* Centrer horizontalement le contenu */
   }
 
   .background-image-section {
-    width: 100%;
-    height: 200px; /* or whatever height you prefer */
+    display: none; /* Supprimer l'image de fond sur les appareils mobiles */
+  }
+
+  .form-container {
+    max-width: 100%; /* Utiliser la pleine largeur sur les appareils mobiles */
+    margin-top: 20px; /* Ajouter de l'espace en haut du formulaire */
   }
 }
