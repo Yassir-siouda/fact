@@ -1,5 +1,8 @@
 .login-page {
   display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrer verticalement */
+  align-items: center; /* Centrer horizontalement */
   height: 100vh;
   background-color: #ffffff; /* Choisissez une couleur de fond légère */
   overflow-x: hidden; /* Empêcher le défilement horizontal */
