@@ -15,11 +15,7 @@ const FactureAffichage = () => {
   });
   const [searchTerm, setSearchTerm] = useState('');
 
-  useEffect(() => {
-    fetchFactures();
-  }, []);
-
-  async function fetchFactures() {
+  const fetchFactures = async () => {
     const { data, error } = await supabase.from('Facture').select('*');
     if (!error) {
       setFactures(data.map(facture => ({
@@ -29,7 +25,11 @@ const FactureAffichage = () => {
     } else {
       console.error('Erreur lors du chargement des factures', error.message);
     }
-  }
+  };
+
+  useEffect(() => {
+    fetchFactures();
+  }, []);
 
   useEffect(() => {
     if (editFactureId) {
@@ -38,7 +38,7 @@ const FactureAffichage = () => {
       const totalTTC = totalHT + totalHT * tva;
       setFormData((prevFormData) => ({ ...prevFormData, TotalTTC: totalTTC.toFixed(2) }));
     }
-  }, [formData.TotalHT, formData.TVA, editFactureId]);
+  }, [formData.TotalHT, formData.TVA, editFactureId, fetchFactures]);
 
   const handleEdit = (facture) => {
     setEditFactureId(facture.id);
@@ -231,3 +231,4 @@ const FactureAffichage = () => {
 };
 
 export default FactureAffichage;
+
