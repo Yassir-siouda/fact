@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import supabase from '../../supabase';
 import Menu from '../Menu/Menu';
 import './FactureAffichage.css';
@@ -15,7 +15,7 @@ const FactureAffichage = () => {
   });
   const [searchTerm, setSearchTerm] = useState('');
 
-  const fetchFactures = async () => {
+  const fetchFactures = useCallback(async () => {
     const { data, error } = await supabase.from('Facture').select('*');
     if (!error) {
       setFactures(data.map(facture => ({
@@ -25,11 +25,11 @@ const FactureAffichage = () => {
     } else {
       console.error('Erreur lors du chargement des factures', error.message);
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchFactures();
-  }, []);
+  }, [fetchFactures]);
 
   useEffect(() => {
     if (editFactureId) {
@@ -38,7 +38,7 @@ const FactureAffichage = () => {
       const totalTTC = totalHT + totalHT * tva;
       setFormData((prevFormData) => ({ ...prevFormData, TotalTTC: totalTTC.toFixed(2) }));
     }
-  }, [formData.TotalHT, formData.TVA, editFactureId, fetchFactures]);
+  }, [formData.TotalHT, formData.TVA, editFactureId]);
 
   const handleEdit = (facture) => {
     setEditFactureId(facture.id);
@@ -205,30 +205,30 @@ const FactureAffichage = () => {
                       <span style={{ color: facture.Status === 'Accepté' ? 'green' : 'red' }}>
                         {facture.Status}
                       </span>
-                    )}
-                  </td>
-                  <td>
-                    {editFactureId === facture.id ? (
-                      <>
-                        <button className="save-btn action-btn" onClick={handleSave}>Save</button>
-                        <button className="cancel-btn action-btn" onClick={handleCancel}>Cancel</button>
-                      </>
-                    ) : (
-                      <>
-                        <button className="edit-btn action-btn" onClick={() => handleEdit(facture)}>Edit</button>
-                        <button className="delete-btn action-btn" onClick={() => handleDelete(facture.id)}>Delete</button>
-                      </>
-                    )}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default FactureAffichage;
-
+                               )}
+                                          </td>
+                                          <td>
+                                            {editFactureId === facture.id ? (
+                                              <>
+                                                <button className="save-btn action-btn" onClick={handleSave}>Save</button>
+                                                <button className="cancel-btn action-btn" onClick={handleCancel}>Cancel</button>
+                                              </>
+                                            ) : (
+                                              <>
+                                                <button className="edit-btn action-btn" onClick={() => handleEdit(facture)}>Edit</button>
+                                                <button className="delete-btn action-btn" onClick={() => handleDelete(facture.id)}>Delete</button>
+                                              </>
+                                            )}
+                                          </td>
+                                        </tr>
+                                      ))}
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        };
+                        
+                        export default FactureAffichage;
+                        
