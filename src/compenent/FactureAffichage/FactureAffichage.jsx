@@ -127,6 +127,7 @@ const FactureAffichage = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
+          <span className="search-icon">🔍</span>
         </div>
         <div className="totals-container">
           <div className="total">
@@ -138,88 +139,92 @@ const FactureAffichage = () => {
             <p>{totalTTC.toFixed(2)} €</p>
           </div>
         </div>
-        <table>
-          <thead>
-            <tr>
-              <th>Client</th>
-              <th>Date de Création</th>
-              <th>Total HT</th>
-              <th>TVA (%)</th>
-              <th>Total TTC</th>
-              <th>Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredFactures.map((facture) => (
-              <tr key={facture.id}>
-                <td>
-                  {editFactureId === facture.id ? (
-                    <input
-                      type="text"
-                      name="Client"
-                      value={formData.Client}
-                      onChange={handleChange}
-                    />
-                  ) : (
-                    facture.Client
-                  )}
-                </td>
-                <td>{facture.created_at}</td>
-                <td>
-                  {editFactureId === facture.id ? (
-                    <input
-                      type="number"
-                      name="TotalHT"
-                      value={formData.TotalHT}
-                      onChange={handleChange}
-                    />
-                  ) : (
-                    facture.TotalHT
-                  )}
-                </td>
-                <td>
-                  {editFactureId === facture.id ? (
-                    <input
-                      type="number"
-                      name="TVA"
-                      value={formData.TVA}
-                      onChange={handleChange}
-                    />
-                  ) : (
-                    facture.TVA
-                  )}
-                </td>
-                <td>
-                  {editFactureId === facture.id ? formData.TotalTTC : facture.TotalTTC}
-                </td>
-                <td>
-                  {editFactureId === facture.id ? (
-                    <select name="Status" value={formData.Status} onChange={handleChange}>
-                      <option value="Accepté">Accepté</option>
-                      <option value="Refusé">Refusé</option>
-                    </select>
-                  ) : (
-                    <span style={{ color: facture.Status === 'Accepté' ? 'green' : 'red' }}>{facture.Status}</span>
-                  )}
-                </td>
-                <td>
-                  {editFactureId === facture.id ? (
-                    <>
-                      <button className="save-btn action-btn" onClick={handleSave}>Save</button>
-                      <button className="cancel-btn action-btn" onClick={handleCancel}>Cancel</button>
-                    </>
-                  ) : (
-                    <>
-                      <button className="edit-btn action-btn" onClick={() => handleEdit(facture)}>Edit</button>
-                      <button className="delete-btn action-btn" onClick={() => handleDelete(facture.id)}>Delete</button>
-                    </>
-                  )}
-                </td>
+        <div className="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Client</th>
+                <th>Date de Création</th>
+                <th>Total HT</th>
+                <th>TVA (%)</th>
+                <th>Total TTC</th>
+                <th>Status</th>
+                <th>Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {filteredFactures.map((facture) => (
+                <tr key={facture.id}>
+                  <td>
+                    {editFactureId === facture.id ? (
+                      <input
+                        type="text"
+                        name="Client"
+                        value={formData.Client}
+                        onChange={handleChange}
+                      />
+                    ) : (
+                      facture.Client
+                    )}
+                  </td>
+                  <td>{facture.created_at}</td>
+                  <td>
+                    {editFactureId === facture.id ? (
+                      <input
+                        type="number"
+                        name="TotalHT"
+                        value={formData.TotalHT}
+                        onChange={handleChange}
+                      />
+                    ) : (
+                      facture.TotalHT
+                    )}
+                  </td>
+                  <td>
+                    {editFactureId === facture.id ? (
+                      <input
+                        type="number"
+                        name="TVA"
+                        value={formData.TVA}
+                        onChange={handleChange}
+                      />
+                    ) : (
+                      facture.TVA
+                    )}
+                  </td>
+                  <td>
+                    {editFactureId === facture.id ? formData.TotalTTC : facture.TotalTTC}
+                  </td>
+                  <td>
+                    {editFactureId === facture.id ? (
+                      <select name="Status" value={formData.Status} onChange={handleChange}>
+                        <option value="Accepté">Accepté</option>
+                        <option value="Refusé">Refusé</option>
+                      </select>
+                    ) : (
+                      <span style={{ color: facture.Status === 'Accepté' ? 'green' : 'red' }}>
+                        {facture.Status}
+                      </span>
+                    )}
+                  </td>
+                  <td>
+                    {editFactureId === facture.id ? (
+                      <>
+                        <button className="save-btn action-btn" onClick={handleSave}>Save</button>
+                        <button className="cancel-btn action-btn" onClick={handleCancel}>Cancel</button>
+                      </>
+                    ) : (
+                      <>
+                        <button className="edit-btn action-btn" onClick={() => handleEdit(facture)}>Edit</button>
+                        <button className="delete-btn action-btn" onClick={() => handleDelete(facture.id)}>Delete</button>
+                      </>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
