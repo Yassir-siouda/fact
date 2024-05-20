@@ -31,12 +31,15 @@ const App = () => {
         <nav className="navigation">
           <ul className="nav-links">
             <li><a href="/facture" className="nav-link active"><FaRegChartBar /> Facture</a></li>
-            <li><a href="facture-affichage" className="nav-link"><FaRegChartBar /> Affichage Profile</a></li>
+            <li><a href="/facture-affichage" className="nav-link"><FaRegChartBar /> Affichage Facture</a></li>
+            <li><a href="/devis" className="nav-link"><FaRegChartBar /> Devis</a></li>
+            <li><a href="/devis-affichage" className="nav-link"><FaRegChartBar /> Affichage Devis</a></li>
+            <li><a href="/clients" className="nav-link"><FaRegChartBar /> Clients</a></li>
            
           </ul>
         </nav>
         <div className="sidebar-footer">
-          <a href="/profile" className="footer-link"><FaUser /> Profile</a>
+          <a href="/profile/:userId" className="footer-link"><FaUser /> Profile</a>
        
         </div>
       </aside>

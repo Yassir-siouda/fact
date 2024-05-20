@@ -1,4 +1,6 @@
+// Profile.jsx
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom'; // Importez useParams pour obtenir les paramètres de l'URL
 import supabase from '../../supabase';
 import Menu from '../Menu/Menu';
 import './Profile.css';
@@ -8,7 +10,7 @@ function ProfilePage() {
         nom: '', prenom: '', email: '', adresse: '', dateNaissance: '', telephone: ''
     });
     const [isEditing, setIsEditing] = useState(false);
-    const userId = 2;
+    const { userId } = useParams(); // Récupérez l'ID de l'utilisateur depuis l'URL dynamique
 
     useEffect(() => {
         const fetchProfile = async () => {

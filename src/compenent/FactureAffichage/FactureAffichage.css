@@ -11,7 +11,7 @@ body {
   margin: 0;
 }
 
-.app {
+.appaffichage {
   display: flex;
   margin: 0;
 }
@@ -150,7 +150,7 @@ select {
 
 
 @media only screen and (max-width: 768px) {
-  .app {
+  .appaffichage {
     flex-direction: column;
   }
   
@@ -161,6 +161,6 @@ select {
   
   .facture-affichage-container {
     order: 2;
-    margin-top: -600px ;
+   
   }
 }

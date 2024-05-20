@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Menu from '../Menu/Menu'; 
 import supabase from '../../supabase';
-import './Facture.css';
+import './Devis.css';
 
-const Facture = ({ userId }) => {
+const Devis = ({ userId }) => {
   const [formData, setFormData] = useState({
     Client: '',
     Adresse: '',
@@ -34,11 +34,11 @@ const Facture = ({ userId }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { error } = await supabase.from('Facture').insert([formData]);
+    const { error } = await supabase.from('Devis').insert([formData]);
     if (error) {
       alert(`Erreur lors de l'enregistrement: ${error.message}`);
     } else {
-      alert('Facture enregistrée avec succès!');
+      alert('Devis enregistrée avec succès!');
       setFormData({
         Client: '',
         Adresse: '',
@@ -56,11 +56,11 @@ const Facture = ({ userId }) => {
   };
 
   return (
-    <div className="app">
+    <div className="appdevis">
       <Menu />
-      <div className="facture-content">
-        <h1>Ajouter une facture</h1>
-        <form onSubmit={handleSubmit} className="facture-form">
+      <div className="devis-content">
+        <h1>Ajouter un Devis</h1>
+        <form onSubmit={handleSubmit} className="devis-form">
           <div className="row">
             <div className="column">
               <label>Client</label>
@@ -105,11 +105,11 @@ const Facture = ({ userId }) => {
               <input type="text" name="TotalTTC" value={formData.TotalTTC} placeholder="Total TTC" readOnly />
             </div>
           </div>
-          <button type="submit">Soumettre la facture</button>
+          <button type="submit">Soumettre la Devis</button>
         </form>
       </div>
     </div>
   );
 };
 
-export default Facture;
+export default Devis;

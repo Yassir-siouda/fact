@@ -1,6 +1,7 @@
+
 .login-page {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   justify-content: center; /* Centrer verticalement */
   align-items: center; /* Centrer horizontalement */
   height: 100vh;
@@ -26,7 +27,7 @@
 }
 
 h1 {
-  margin-top: 10px !important; 
+  margin-top: 10px !important;
 }
 
 .form-title {
@@ -90,7 +91,7 @@ h1 {
 
 .background-image-section {
   width: 65%;
- 
+  background-image: url('https://www.akamai.com/site/im-demo/perceptual-standard.jpg?imbypass=true');
   background-size: cover;
   background-position: center;
 }

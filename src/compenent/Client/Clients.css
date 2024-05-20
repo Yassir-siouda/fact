@@ -1,0 +1,199 @@
+/* Clients.css */
+
+/* Styles généraux */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+  }
+  
+  .app-client {
+    display: flex;
+    margin: 0;
+    min-height: 100vh;
+  }
+  
+  .menu {
+    flex: 0 0 200px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  .menu h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .client-container {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border-left: 1px solid #ddd;
+  }
+  
+  .client-container h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .search-container {
+    margin-bottom: 20px;
+    display: flex;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .search-icon {
+    display: inline-block;
+    background-color: #ccc;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+  
+  .add-btn {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+  }
+  
+  table th,
+  table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+  
+  table th {
+    background-color: #f2f2f2;
+  }
+  
+  table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .action-btn {
+    padding: 8px 10px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .edit-btn {
+    background-color: #2196f3;
+    color: #fff;
+  }
+  
+  .delete-btn {
+    background-color: #f44336;
+    color: #fff;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .modal h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .modal form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .modal input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .modal button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .save-btn {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  .cancel-btn {
+    background-color: #f44336;
+    color: #fff;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .app-client {
+      flex-direction: column;
+    }
+  
+    .menu {
+      flex: 0 0 100%;
+      order: 1;
+    }
+  
+    .client-container {
+      order: 2;
+    }
+  
+    .buttons-container {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .add-btn,
+    .search-input {
+      margin-bottom: 10px;
+    }
+  }
+  

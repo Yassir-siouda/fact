@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
+import bcrypt from 'bcryptjs';
 import supabase from '../../supabase';
 import './connexion.css';
-import logo from '../images/InvoicePro.png'
+import logo from '../images/InvoicePro.png';
 
-const LoginPage = ({ setIsLoggedIn }) => {
+const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [isLoggedIn, setLoggedInState] = useState(false); // Utiliser un autre nom pour la fonction useState
+  const [isLoggedIn, setLoggedIn] = useState(false); 
+  const [userId, setUserId] = useState(null); // Ajoutez l'état userId
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const { data, error } = await supabase
         .from('Authentification')
-        .select('email, password')
+        .select('id, email, password')
         .eq('email', email)
         .single();
 
@@ -23,10 +25,12 @@ const LoginPage = ({ setIsLoggedIn }) => {
         throw error;
       }
 
-      if (data && data.password === password) {
+      const validPassword = await bcrypt.compare(password, data.password);
+
+      if (data && validPassword) {
         console.log('Connexion réussie pour:', data.email);
-        setIsLoggedIn(true);
-        setLoggedInState(true); // Mettre à jour le state local
+        setLoggedIn(true);
+        setUserId(data.id); // Mettre à jour l'état userId
       } else {
         throw new Error('Identifiants incorrects');
       }
@@ -36,15 +40,15 @@ const LoginPage = ({ setIsLoggedIn }) => {
     }
   };
 
-  if (isLoggedIn) {
-    return <Navigate to="/profile" />; // Redirection vers /menu si l'utilisateur est connecté
+  if (isLoggedIn && userId) {
+    return <Navigate to={`/profile/${userId}`} />; // Rediriger vers la page de profil avec l'ID de l'utilisateur
   }
 
   return (
     <div className="login-page">
       <div className="form-section">
         <div className="form-container">
-            <img src={logo} alt="Logo" className="logo" /> 
+          <img src={logo} alt="Logo" className="logo" />
           <h1 className="form-title">Connexion</h1>
           <form className="login-form" onSubmit={handleLogin}>
             <div className="input-group">

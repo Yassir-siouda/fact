@@ -88,6 +88,10 @@ const FactureAffichage = () => {
     }
   };
 
+  const handlePrint = () => {
+    window.print();
+  };
+
   const calculerTotaux = (factures) => {
     let totalHT = 0;
     let totalTTC = 0;
@@ -115,7 +119,7 @@ const FactureAffichage = () => {
   };
 
   return (
-    <div className="app">
+    <div className="appaffichage">
       <Menu />
       <div className="facture-affichage-container">
         <h1>Gestion des Factures</h1>
@@ -205,30 +209,30 @@ const FactureAffichage = () => {
                       <span style={{ color: facture.Status === 'Accepté' ? 'green' : 'red' }}>
                         {facture.Status}
                       </span>
-                               )}
-                                          </td>
-                                          <td>
-                                            {editFactureId === facture.id ? (
-                                              <>
-                                                <button className="save-btn action-btn" onClick={handleSave}>Save</button>
-                                                <button className="cancel-btn action-btn" onClick={handleCancel}>Cancel</button>
-                                              </>
-                                            ) : (
-                                              <>
-                                                <button className="edit-btn action-btn" onClick={() => handleEdit(facture)}>Edit</button>
-                                                <button className="delete-btn action-btn" onClick={() => handleDelete(facture.id)}>Delete</button>
-                                              </>
-                                            )}
-                                          </td>
-                                        </tr>
-                                      ))}
-                                    </tbody>
-                                  </table>
-                                </div>
-                              </div>
-                            </div>
-                          );
-                        };
-                        
-                        export default FactureAffichage;
-                        
+                    )}
+                  </td>
+                  <td>
+                    {editFactureId === facture.id ? (
+                      <>
+                        <button className="save-btn action-btn" onClick={handleSave}>Save</button>
+                        <button className="cancel-btn action-btn" onClick={handleCancel}>Cancel</button>
+                      </>
+                    ) : (
+                      <>
+                        <button className="edit-btn action-btn" onClick={() => handleEdit(facture)}>Edit</button>
+                        <button className="delete-btn action-btn" onClick={() => handleDelete(facture.id)}>Delete</button>
+                        <button className="print-btn action-btn" onClick={handlePrint}>Print</button>
+                      </>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default FactureAffichage;

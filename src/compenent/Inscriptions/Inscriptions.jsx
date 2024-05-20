@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import supabase from '../../supabase';
+import bcrypt from 'bcryptjs';
+import supabase from '../../supabase'; // Assurez-vous que ce chemin est correct
 
 const InscriptionPage = () => {
   const [registerEmail, setRegisterEmail] = useState('');
@@ -10,28 +11,36 @@ const InscriptionPage = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    setRegisterError(''); // Reset error message
+
     try {
-      // Vérifier si l'email existe déjà
+      // Vérifier si l'email existe déjà dans la table Authentification
       const { data: existingUsers, error: selectError } = await supabase
         .from('Authentification')
         .select('email')
         .eq('email', registerEmail);
 
       if (selectError) {
-        throw selectError;
+        console.error('Erreur lors de la vérification des utilisateurs existants :', selectError);
+        throw new Error('Erreur lors de la vérification des utilisateurs existants.');
       }
 
       if (existingUsers.length > 0) {
         throw new Error('Cet email est déjà enregistré.');
       }
 
-      // Insertion de l'utilisateur dans la table "Connexion" avec Supabase
+      // Hacher le mot de passe
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(registerPassword, salt);
+
+      // Insertion de l'utilisateur dans la table Authentification avec Supabase
       const { data, error } = await supabase
-        .from('Connexion')
-        .insert([{ email: registerEmail, password: registerPassword }]);
+        .from('Authentification')
+        .insert([{ email: registerEmail, password: hashedPassword }]);
 
       if (error) {
-        throw error;
+        console.error('Erreur lors de l\'insertion de l\'utilisateur :', error);
+        throw new Error('Erreur lors de l\'inscription. Veuillez réessayer.');
       }
 
       console.log('Utilisateur enregistré:', data);
