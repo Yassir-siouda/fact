@@ -58,23 +58,18 @@ const Clients = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    // Vérifier si le client existe déjà avec le même email
     const existingClient = clients.find(client => client.Email === formData.Email);
     if (existingClient) {
       alert('Ce client existe déjà.');
       return;
     }
-    const { data, error } = await supabase.from('Clients').insert([formData]);
+    const { error } = await supabase.from('Clients').insert([formData]);
     if (!error) {
       fetchClients();
       closeModal();
     } else {
       console.error('Erreur lors de l\'ajout du client', error.message);
     }
-  };
-
-  const handleEdit = (id) => {
-    console.log(`Modification du client avec l'ID ${id}`);
   };
 
   const handleDelete = async (id) => {
@@ -138,7 +133,6 @@ const Clients = () => {
                   <td>{client.Email}</td>
                   <td>{client.Telephone}</td>
                   <td>
-                    <button className="edit-btn action-btn" onClick={() => handleEdit(client.id)}>Modifier</button>
                     <button className="delete-btn action-btn" onClick={() => handleDelete(client.id)}>Supprimer</button>
                   </td>
                 </tr>
