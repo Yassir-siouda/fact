@@ -18,7 +18,7 @@ const DevisAffichage = () => {
   });
   const [showModal, setShowModal] = useState(false);
   const [editId, setEditId] = useState(null);
-  const [filterStatus, setFilterStatus] = useState('Tous'); // Nouveau state pour le filtre
+  const [filterStatus, setFilterStatus] = useState('Tous');
 
   useEffect(() => {
     fetchDevis();
@@ -101,13 +101,9 @@ const DevisAffichage = () => {
         alert(`Erreur lors de la conversion en facture: ${insertError.message}`);
       } else {
         alert('Devis converti en facture avec succès!');
-        fetchDevis(); // Recharger les devis après conversion
+        fetchDevis();
       }
     }
-  };
-
-  const handlePrint = () => {
-    window.print();
   };
 
   const handleExportCSV = () => {
@@ -209,7 +205,7 @@ const DevisAffichage = () => {
                   <button className="edit-btn" onClick={() => handleEdit(devis)}>Edit</button>
                   <button className="view-btn" onClick={() => handleShow(devis)}>Voir</button>
                   <button className="delete-btn" onClick={() => handleDelete(devis.id)}>Supprimer</button>
-                  <button class                  className="convert-btn" onClick={() => handleConvertToFacture(devis.id)}>Convertir en Facture</button>
+                  <button className="convert-btn" onClick={() => handleConvertToFacture(devis.id)}>Convertir en Facture</button>
                 </td>
               </tr>
             ))}
@@ -244,4 +240,3 @@ const DevisAffichage = () => {
 };
 
 export default DevisAffichage;
-
